@@ -17,7 +17,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(passport.initialize());
 
+app.get('/users', UserCtrl.index);
 app.get('/users/me', passport.authenticate('jwt', { session: false }), UserCtrl.getUserInfo);
+app.get('/users/:id', UserCtrl.show);
 
 app.get('/auth/verify', registerValidations, UserCtrl.verify);
 app.post('/auth/register', registerValidations, UserCtrl.create);

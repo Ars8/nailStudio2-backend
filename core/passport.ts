@@ -48,12 +48,12 @@ passport.use(
   ),
 );
 
-passport.serializeUser((user: UserModelInterface, done) => {
+passport.serializeUser((user: any, done) => {
   done(null, user?._id);
 });
 
 passport.deserializeUser((id, done) => {
-  UserModel.findById(id, (err, user) => {
+  UserModel.findById(id, (err: any, user: any) => {
     done(err, user);
   });
 });
