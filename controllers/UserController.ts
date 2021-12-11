@@ -74,7 +74,7 @@ class UserController {
 
       sendEmail(
         {
-          emailFrom: 'admin@twitter.com',
+          emailFrom: 'fransuazakubov@gmail.com',
           emailTo: data.email,
           subject: 'Подтверждение почты Twitter Clone Tutorial',
           html: `Для того, чтобы подтвердить почту, перейдите <a href="http://localhost:3000/user/activate/${data.confirmHash}">по этой ссылке</a>`,
