@@ -76,7 +76,7 @@ class UserController {
         {
           emailFrom: 'fransuazakubov@gmail.com',
           emailTo: data.email,
-          subject: 'Подтверждение почты Twitter Clone Tutorial',
+          subject: 'Подтверждение регистрации NailStudio',
           html: `Для того, чтобы подтвердить почту, перейдите <a href="http://localhost:3000/user/activate/${data.confirmHash}">по этой ссылке</a>`,
         },
         (err: Error | null) => {

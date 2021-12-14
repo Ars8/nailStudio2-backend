@@ -53,7 +53,7 @@ passport.serializeUser((user: any, done) => {
 });
 
 passport.deserializeUser((id, done) => {
-  UserModel.findById(id, (err: any, user: any) => {
+  UserModel.findById(id, (err: Error, user: UserModelInterface) => {
     done(err, user);
   });
 });
