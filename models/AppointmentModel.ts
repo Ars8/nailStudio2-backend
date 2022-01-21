@@ -1,18 +1,17 @@
 import { model, Schema, Document } from 'mongoose';
 import { UserModelDocumentInterface } from './UserModel';
 
-export interface TweetModelInterface {
+export interface AppointmentModelInterface {
   _id?: string;
-  text: string;
+  appointmentTime: string;
   user: UserModelDocumentInterface;
-  images?: string[];
 }
 
-export type TweetModelDocumentInterface = TweetModelInterface & Document;
+export type AppointmentModelDocumentInterface = AppointmentModelInterface & Document;
 
-const TweetSchema = new Schema<TweetModelInterface>(
+const AppointmentSchema = new Schema<AppointmentModelInterface>(
   {
-    text: {
+    appointmentTime: {
       required: true,
       type: String,
       maxlength: 280,
@@ -22,15 +21,10 @@ const TweetSchema = new Schema<TweetModelInterface>(
       ref: 'User',
       type: Schema.Types.ObjectId,
     },
-    images: [
-      {
-        type: String,
-      },
-    ],
   },
   {
     timestamps: true,
   },
 );
 
-export const TweetModel = model<TweetModelDocumentInterface>('Tweet', TweetSchema);
+export const TweetModel = model<AppointmentModelDocumentInterface>('Appointment', AppointmentSchema);
