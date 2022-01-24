@@ -23,6 +23,8 @@ app.get('/users/me', passport.authenticate('jwt', { session: false }), UserCtrl.
 app.get('/users/:id', UserCtrl.show);
 
 app.get('/masters', MastersCtrl.index);
+app.get('/masters/appointment/:id', MastersCtrl.getMasterAppointment);
+app.post('/masters', MastersCtrl.create);
 
 app.get('/auth/verify', registerValidations, UserCtrl.verify);
 app.post('/auth/register', registerValidations, UserCtrl.create);

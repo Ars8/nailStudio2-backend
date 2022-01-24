@@ -27,4 +27,4 @@ const AppointmentSchema = new Schema<AppointmentModelInterface>(
   },
 );
 
-export const TweetModel = model<AppointmentModelDocumentInterface>('Appointment', AppointmentSchema);
+export const AppointmentModel = model<AppointmentModelDocumentInterface>('Appointment', AppointmentSchema);
