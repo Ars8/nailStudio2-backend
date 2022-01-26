@@ -29,7 +29,7 @@ class MastersController {
         return;
       }
 
-      const appointment = await AppointmentModel.find({user: masterId}).populate('user').exec();
+      const appointment = await AppointmentModel.find({user: masterId}).exec();
 
       if (!appointment) {
         res.status(404).send();
