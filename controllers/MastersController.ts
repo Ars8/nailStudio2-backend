@@ -51,6 +51,7 @@ class MastersController {
   async create(req: express.Request, res: express.Response): Promise<void> {
     try {
       const data: any = {
+        appointmentDate: req.body.appointmentDate,
         appointmentTime: req.body.appointmentTime,
         user: req.body._id,
       };

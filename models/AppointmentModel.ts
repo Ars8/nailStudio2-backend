@@ -3,6 +3,7 @@ import { UserModelDocumentInterface } from './UserModel';
 
 export interface AppointmentModelInterface {
   _id?: string;
+  appointmentDate: Date;
   appointmentTime: string;
   user: UserModelDocumentInterface;
 }
@@ -11,10 +12,13 @@ export type AppointmentModelDocumentInterface = AppointmentModelInterface & Docu
 
 const AppointmentSchema = new Schema<AppointmentModelInterface>(
   {
+    appointmentDate: {
+      required: true,
+      type: Date,
+    },
     appointmentTime: {
       required: true,
       type: String,
-      maxlength: 280,
     },
     user: {
       required: true,
