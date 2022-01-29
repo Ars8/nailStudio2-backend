@@ -14,7 +14,7 @@ const AppointmentSchema = new Schema<AppointmentModelInterface>(
   {
     appointmentDate: {
       required: true,
-      type: Date,
+      type: String,
     },
     appointmentTime: {
       required: true,
