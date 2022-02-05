@@ -36,9 +36,17 @@ class MastersController {
         return;
       }
 
+      const data: any = appointment.map(item => {
+        const date = {
+          appointmentDate: item.appointmentDate,
+          appointmentTime: item.appointmentTime,
+        }
+        return date
+      })
+
       res.json({
         status: 'success',
-        data: appointment,
+        data: data,
       });
     } catch (error) {
       res.status(500).json({
