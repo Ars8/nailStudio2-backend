@@ -4,7 +4,6 @@ import { UserModelDocumentInterface } from './UserModel';
 export interface AppointmentModelInterface {
   _id?: string;
   appointmentDate: Date;
-  appointmentTime: string;
   user: UserModelDocumentInterface;
 }
 
@@ -14,11 +13,7 @@ const AppointmentSchema = new Schema<AppointmentModelInterface>(
   {
     appointmentDate: {
       required: true,
-      type: String,
-    },
-    appointmentTime: {
-      required: true,
-      type: String,
+      type: Date,
     },
     user: {
       required: true,

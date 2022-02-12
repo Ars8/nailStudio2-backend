@@ -29,7 +29,7 @@ class MastersController {
         return;
       }
 
-      const appointment = await AppointmentModel.find({user: masterId}).sort({appointmentTime: 'asc'}).exec();
+      const appointment = await AppointmentModel.find({user: masterId}).sort({appointmentDate: 'asc'}).exec();
 
       if (!appointment) {
         res.status(404).send();
@@ -39,7 +39,6 @@ class MastersController {
       const data: any = appointment.map(item => {
         const date = {
           appointmentDate: item.appointmentDate,
-          appointmentTime: item.appointmentTime,
         }
         return date
       })
@@ -60,7 +59,6 @@ class MastersController {
     try {
       const data: any = {
         appointmentDate: req.body.appointmentDate,
-        appointmentTime: req.body.appointmentTime,
         user: req.body._id,
       };
 
