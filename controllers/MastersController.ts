@@ -8,14 +8,58 @@ class MastersController {
     try {
       const masters = await UserModel.find({}).exec();
 
+      const data: any = masters.map((item) => {
+        const userData = {
+          _id: item._id,
+          username: item.username,
+          fullname: item.fullname,
+          workingHours: item.workingHours,
+        }
+        return userData;
+      })
+
       res.json({
         status: 'success',
-        data: masters,
+        data: data,
       });
     } catch (error) {
       res.status(500).json({
         status: 'error',
         message: error
+      });
+    }
+  }
+
+  async getMaster(req: any, res:express.Response): Promise<void> {
+    try {
+      const masterId = req.params.id;
+
+      if (!isValidObjectId(masterId)) {
+        res.status(400).send();
+        return;
+      }
+
+      const masterData = await UserModel.findById(masterId).exec();
+
+      if(!masterData) {
+        res.status(404).send();
+        return;
+      }
+
+      const master = {
+        username: masterData.username,
+        fullname: masterData.fullname,
+        workingHours: masterData.workingHours,
+      }
+
+      res.json({
+        status: 'success',
+        data: master,
+      });
+    } catch (error) {
+      res.status(500).json({
+        status: 'error',
+        message: error,
       });
     }
   }

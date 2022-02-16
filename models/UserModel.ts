@@ -8,6 +8,7 @@ export interface UserModelInterface {
   password: string;
   confirmHash: string;
   confirmed?: boolean;
+  workingHours?: number[];
 }
 
 export type UserModelDocumentInterface = UserModelInterface & Document;
@@ -39,6 +40,10 @@ const UserSchema = new Schema<UserModelInterface>(
     confirmed: {
       type: Boolean,
       default: false,
+    },
+    workingHours: {
+      type: [Number],
+      default: [10, 11, 12, 14, 15, 16, 17, 18],
     },
     location: String,
     about: String,

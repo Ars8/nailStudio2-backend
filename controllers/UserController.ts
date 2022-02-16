@@ -12,9 +12,18 @@ class UserController {
     try {
       const users = await UserModel.find({}).exec();
 
+      const data: any = users.map((item) => {
+        const userData = {
+          username: item.username,
+          fullname: item.fullname,
+          workingHours: item.workingHours,
+        }
+        return userData;
+      })
+
       res.json({
         status: 'success',
-        data: users,
+        data: data,
       });
     } catch (error) {
       res.status(500).json({
