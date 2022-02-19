@@ -47,6 +47,7 @@ class MastersController {
       }
 
       const master = {
+        _id: masterData._id,
         username: masterData.username,
         fullname: masterData.fullname,
         workingHours: masterData.workingHours,
@@ -103,7 +104,7 @@ class MastersController {
     try {
       const data: any = {
         appointmentDate: req.body.appointmentDate,
-        user: req.body._id,
+        user: req.body.toMaster,
       };
 
       const appointment = await AppointmentModel.create(data);
