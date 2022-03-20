@@ -33,5 +33,4 @@ app.post('/auth/login', passport.authenticate('local'), UserCtrl.afterLogin);
 
 app.listen(process.env.PORT, (): void => {
   console.log('SERVER RUNNING!');
-  console.log('SERVER RUNNING!');
 });
